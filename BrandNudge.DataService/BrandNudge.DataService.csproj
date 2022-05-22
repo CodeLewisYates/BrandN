@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BrandNudge.Core\BrandNudge.Core.csproj" />
+    <ProjectReference Include="..\BrandNudge.Data\BrandNudge.Data.csproj" />
+  </ItemGroup>
+
+</Project>

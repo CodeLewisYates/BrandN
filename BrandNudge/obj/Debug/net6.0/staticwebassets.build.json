@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "IWX4gtEjBMT1eLF1kjfSmgpFR+RUCLytEj8DVYNO+qc=",
+  "Source": "BrandNudge.API",
+  "BasePath": "_content/BrandNudge.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

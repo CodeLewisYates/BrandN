@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.625;
+  letter-spacing: 0.00938em;
+  overflow-x: hidden;
+}
+
+html, body {
+  /* width: 100vw; */
+  height: 100%;
+  
+}
+
+#root {
+  min-height: 100%;
+  height: max-content;
+  background: linear-gradient(#1e1e2f,#1e1e24);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
