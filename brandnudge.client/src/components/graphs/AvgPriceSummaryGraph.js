@@ -37,7 +37,7 @@ const graphOptions = {
             }
         },
         title: {
-            display: true,
+            display: false,
             text: "Retailers Average Shelf Price",
             position: "top",
             align: "start",

@@ -48,7 +48,7 @@ const graphOptions = {
             }
         },
         title: {
-            display: true,
+            display: false,
             text: "Retailers Number of Products",
             position: "top",
             align: "start",

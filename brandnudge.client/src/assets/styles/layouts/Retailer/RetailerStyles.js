@@ -17,5 +17,5 @@ export const RetailerCard = styled.div`
 `
 
 export const RetailerGraphHeightLimiter = styled.div`
-    height: 500px;
+    height: 400px;
 `

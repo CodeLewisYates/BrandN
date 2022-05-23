@@ -2,7 +2,7 @@ import React, {useEffect, useState, useMemo, useCallback} from "react";
 import {IoMdArrowRoundDown, IoMdArrowRoundUp} from "react-icons/io";
 import {BsArrowDownUp} from "react-icons/bs"
 import { colors } from "assets/shared/variables";
-import _ from "lodash";
+import _, { first } from "lodash";
 import Paginate from "react-paginate";
 import cx from "classnames";
 import Select from "components/Select/Select";
@@ -51,6 +51,7 @@ const CustomTable = (props) => {
     const retailerOptions = useMemo(() => [...new Set(tableData.data.map(x => x["Retailer"]))], [] );
     const categoryOptions = useMemo(() => [...new Set(tableData.data.map(x => x["Category"]))], [] );
 
+    // Sorting and Filtering
     useEffect(() => {
         setPage(0);
         const newData = tableData.data.filter(item => {
@@ -60,7 +61,7 @@ const CustomTable = (props) => {
             if (filters["Brand"] && item["Brand"] != filters["Brand"]) include = false;
             if (filters["Retailer"] && item["Retailer"] != filters["Retailer"]) include = false;
             if (filters["Category"] && item["Category"] != filters["Category"]) include = false;
-            if (searchQuery && !item["Product Name"].toLowerCase().includes(searchQuery)) include = false;
+            if (searchQuery && !item["Product Name"].toLowerCase().includes(searchQuery.toLowerCase())) include = false;
             return include;
         });
         setSortedData(newData);

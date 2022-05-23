@@ -37,7 +37,7 @@ const chartOptions = {
             }
         },
         title: {
-            display: true,
+            display: false,
             text: "Promotions Per Category",
             position: "top",
             align: "start",

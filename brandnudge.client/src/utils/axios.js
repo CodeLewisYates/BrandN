@@ -7,10 +7,8 @@ const axios = axiosLibrary.create({
 });
 
 axios.interceptors.response.use((response) => {
-    console.log(response);
     return response.data;
 }, (error) => {
-    console.log(error);
     return {error: true, message: error.message};
 });
 

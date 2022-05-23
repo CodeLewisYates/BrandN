@@ -8,7 +8,7 @@ const chartOptions = {
     maintainAspectRatio: false,
     plugins: {
         title: {
-            display: true,
+            display: false,
             text: "Retailer Categories Comparison",
             position: "top",
             align: "start",

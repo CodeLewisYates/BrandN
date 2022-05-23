@@ -9,23 +9,38 @@ import CategoryPromotionsGraph from "components/graphs/RetailerCategoryPromotion
 import CustomTable from "components/Table";
 import { getTableFormat } from "utils/services/RetailerService";
 import Card from "components/Card/Card";
+import Select from "components/Select/Select";
 import { RetailerContainer } from "assets/styles/layouts/Retailer/RetailerStyles";
+import { getCategoryPromotions } from "utils/services/RetailerService";
 
 const Retailer = (props) => {
 
+    const [data, setData] = useState(null);
+    const [selectedDate, setSelectedDate] = useState('2022-02-07');
+    const [graphData, setGraphData] = useState(null);
+
     const location = useLocation();
+    const paths = location.pathname.split("/");
 
     useEffect(() => {
         services();
     }, []);
+    // here :)
+    useEffect(() => {
+        getNewGraph();
+    }, [selectedDate]);
 
     const services = async () => {
-        const split = location.pathname.split("/");
-        const result = await RetailerService(split[split.length-1]);
+        const result = await RetailerService(paths[paths.length-1]);
         setData(result);
+        setGraphData(result.productsData);
     }
 
-    const [data, setData] = useState(null);
+    const getNewGraph = async () => {
+        const result = await getCategoryPromotions(paths[paths.length-1], selectedDate);
+        setGraphData(result);
+    }
+
 
     return (
         <RetailerContainer>
@@ -33,7 +48,8 @@ const Retailer = (props) => {
 
             {data ? (
                 <>
-                <Card>
+                <Card headerText="Promotions By Category">
+                    <Select onChange={(e) => setSelectedDate(e.target.value)} options={data.dates}/>
                     <RetailerGraphHeightLimiter>
                         <CategoryPromotionsGraph data={data.categoryPopularities} />
                     </RetailerGraphHeightLimiter>

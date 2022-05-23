@@ -70,14 +70,14 @@ const Dashboard = (props) => {
                 </DashboardCardsContainer>
                 
                 <DashboardGraphRow>
-                    <Card width="38%">
+                    <Card width="38%" headerText="Retailer Amount of Products in Categories">
+                        <Select onChange={(e) => setDonutCategory(e.target.value)} valueProperty="id" options={data.categories} property="categoryName" />
+                        <Select onChange={(e) => setDonutDate(e.target.value)} options={data.dates} />
                         <DashboardGraphHeightLimiter style={{marginBottom: "10px"}}>
                             <DonutCategorySummaryGraph data={donutData} />
                         </DashboardGraphHeightLimiter>
-                        <Select onChange={(e) => setDonutCategory(e.target.value)} valueProperty="id" options={data.categories} property="categoryName" />
-                        <Select onChange={(e) => setDonutDate(e.target.value)} options={data.dates} />
                     </Card>
-                    <Card width="60%">
+                    <Card width="60%" headerText="Retailers Number of Products">
                         <DashboardGraphHeightLimiter>
                             <StockSummaryGraph data={data.stockSummaryData} />
                         </DashboardGraphHeightLimiter>
@@ -85,14 +85,11 @@ const Dashboard = (props) => {
                 </DashboardGraphRow>
                 
                 <DashboardGraphRow>
-                    <Card>
+                    <Card headerText="Retailers Average Shelf Price">
                         <DashboardGraphHeightLimiter>
                             <AvgPriceSummaryGraph data={data.priceSummaryData} />
                         </DashboardGraphHeightLimiter>
                     </Card>
-                    {/* <DashboardGraphCard2>
-                        <Table tableData={getTableFormatPriceSummary(data.priceSummaryData)} />
-                    </DashboardGraphCard2> */}
                 </DashboardGraphRow>
 
                 </>

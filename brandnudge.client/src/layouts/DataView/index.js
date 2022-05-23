@@ -25,7 +25,7 @@ const DataView = () => {
         <DataViewContainer>
             <LayoutTitle />
             {data ? (
-               <Card width="100%">
+               <Card width="100%" headerText="Data Viewer">
                     <CustomTable tableData={getTableFormat(data)} rows={15} />
                 </Card>
             ) : (

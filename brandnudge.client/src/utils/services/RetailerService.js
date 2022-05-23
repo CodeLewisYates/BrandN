@@ -12,7 +12,7 @@ const RetailerService = async (id) => {
 
     const result = await Promise.all(promises);
 
-    return {productsData: result[0], categoryPopularities: result[1]}
+    return {productsData: result[0], categoryPopularities: result[1], dates: result[2]}
 }
 
 const getProductsData = async (id) => {
@@ -25,7 +25,7 @@ const getDates = async () => {
     return response;
 }
 
-const getCategoryPromotions = async (id, date) => {
+export const getCategoryPromotions = async (id, date) => {
     const result = await axios.get(`retailers/categoryPromotions/${id}/${date}`);
     return result;
 }
