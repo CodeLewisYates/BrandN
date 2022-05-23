@@ -1,6 +1,7 @@
 import { Line } from "react-chartjs-2";
 import {retailerColors} from "assets/shared/variables";
 import { colors } from "assets/shared/variables";
+import _ from "lodash";
 
 const graphOptions = {
     responsive: true,
@@ -72,13 +73,13 @@ const StockSummaryGraph = (props) => {
 
     const {data} = props;
 
-    const labels = data[0].data.map(x => x.date);
+    const labels = _.orderBy(data[0].data.map(x => x.date), (o) => o, "asc");
     const formattedData = {
         labels,
         datasets: data.map((x, i) => {
             return {
                 label: x.retailer,
-                data: x.data.map(y => y.value),
+                data: _.orderBy(x.data, (o) => o.date, "asc").map(y => y.value),
                 borderColor: retailerColors[i],
                 pointHoverBackgroundColor: retailerColors[i],
                 pointRadius: 3,

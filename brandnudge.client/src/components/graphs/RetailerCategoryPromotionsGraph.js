@@ -32,54 +32,43 @@ const chartOptions = {
             enabled: true,
             boxPadding: 6,
             callbacks: {
-                label: (labelTip) => `${labelTip.dataset.label}: ${labelTip.formattedValue} Products`,
-                title: (titleTip) => `Date: ${titleTip[0].label}`
+                label: (labelTip) => `${labelTip.dataset.label}: ${labelTip.formattedValue}`,
+                title: (titleTip) => `${titleTip[0].label}`
             }
         },
         title: {
             display: true,
-            text: "Amount of Products in Categories",
+            text: "Promotions Per Category",
             position: "top",
             align: "start",
             font: {size: 20, family: "Roboto"},
             color: `${colors.whiteText}`,
         },
         legend: {
-            labels: {
-                color: `${colors.whiteText}`,
-                font: {
-                    family: "Roboto"
-                }
-            }
+            display: false,
         }
     },
 }
 
 const CategoryPopularityGraph = (props) => {
-
+ 
     const { data } = props;
 
-    const byDate = _.groupBy(data, (o) => o.date);
-    const labels = _.orderBy(Object.keys(byDate), (o) => o);
-    const sorted = _.orderBy(data, (o) => o.date);
-
-    const format = _.groupBy(sorted, (o) => o.categoryName);
-    console.log(format);
+    const alphabetical = _.sortBy(data, (o) => o.category);
+    const labels = alphabetical.map(x => x.category);
     const formattedData = {
         labels,
-        datasets: Object.keys(format).map((x, i) => {
-            return {
-                label: x,
-                backgroundColor: categoryColorsTrans[i],
-                hoverBackgroundColor: categoryColors[i],
-                borderColor: categoryColors[i],
-                borderWidth: 2,
-                borderRadius: 2,
-                categoryPercentage: 0.8,
-                barPercentage: 0.6,
-                data: format[x].map(y => y.value)
-            }
-        })
+        datasets: [{
+            label: '# Of Products',
+            data: alphabetical.map(x => x.numberOfPromotions),
+            backgroundColor: categoryColorsTrans,
+            hoverBackgroundColor: categoryColors,
+            borderColor: categoryColors,
+            borderWidth: 2,
+            borderRadius: 2,
+            categoryPercentage: 0.8,
+            barPercentage: 0.6,
+        }]
     }
 
     return (

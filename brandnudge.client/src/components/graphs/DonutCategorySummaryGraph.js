@@ -34,7 +34,6 @@ const DonutCategorySummaryGraph = (props) => {
     const formattedData={
         labels,
         datasets: [{
-            label: "tset",
             data: data.map(x => x.productCount),
             backgroundColor: retailerColorsTrans,
             borderColor: retailerColors,

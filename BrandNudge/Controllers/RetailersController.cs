@@ -36,5 +36,13 @@ namespace BrandNudge.API.Controllers
             var result = await _mediator.Send(new GetCategoryPopularityByRetailerQuery(retailerId));
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("CategoryPromotions/{retailerId}/{date}")]
+        public async Task<IActionResult> GetCategoryPromotionsByRetailer([FromRoute] int retailerId, string date)
+        {
+            var result = await _mediator.Send(new GetCategoryPromotionsQuery(retailerId, date));
+            return Ok(result);
+        }
     }
 }

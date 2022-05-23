@@ -1,4 +1,4 @@
-import {useEffect, useState, useMemo} from "react";
+import React, {useEffect, useState, useMemo, useCallback} from "react";
 import {IoMdArrowRoundDown, IoMdArrowRoundUp} from "react-icons/io";
 import {BsArrowDownUp} from "react-icons/bs"
 import { colors } from "assets/shared/variables";
@@ -34,17 +34,15 @@ const CustomTable = (props) => {
     const [sortDir, setSortDir] = useState("desc");
     const [sortedColumn, setSortedColumn] = useState(null);
     const [showFilters, setShowFilters] = useState(false);
-
-    // Search variables
-    const [searchData, setSearchData] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");
 
-    // Filters
-    const [dateFilter, setDateFilter] = useState("No Filter");
-    const [manufacturerFilter, setManuFacturerFilter] = useState("No Filter");
-    const [brandFilter, setBrandFilter] = useState("No Filter");
-    const [retailerFilter, setRetailerFilter] = useState("No Filter");
-    const [categoryFilter, setCategoryFilter] = useState("No Filter");
+    const [filters, setFilters] = useState({
+        "Date": false,
+        "Manufacturer": false,
+        "Brand": false,
+        "Retailer": false,
+        "Category": false,
+    });
 
     // Filter Options
     const dateOptions = useMemo(() => [...new Set(tableData.data.map(x => x["Date"]))], [] );
@@ -53,61 +51,27 @@ const CustomTable = (props) => {
     const retailerOptions = useMemo(() => [...new Set(tableData.data.map(x => x["Retailer"]))], [] );
     const categoryOptions = useMemo(() => [...new Set(tableData.data.map(x => x["Category"]))], [] );
 
-    
     useEffect(() => {
         setPage(0);
-        filterData();
-    }, [dateFilter, manufacturerFilter, brandFilter, categoryFilter, retailerFilter]);
-
-    useEffect(() => {
-        setPage(0);
-        queryData();
-    }, [searchQuery]);
-    
-    const filterData = () => {
-        const filter = {
-            "Date": dateFilter == "No Filter" ? undefined : dateFilter,
-            "Brand": brandFilter == "No Filter" ? undefined : brandFilter,
-            "Manufacturer": manufacturerFilter == "No Filter" ? undefined : manufacturerFilter,
-            "Category": categoryFilter == "No Filter" ? undefined : categoryFilter,
-            "Retailer": retailerFilter == "No Filter" ? undefined : retailerFilter
-        };
-        if (!filter["Date"] && !filter["Brand"] && !filter["Manufacturer"] && !filter["Category"] && !filter["Retailer"]) {
-            setSortedData(tableData.data);
-            return;
-        }
         const newData = tableData.data.filter(item => {
-            let shouldInclude = true;
-            Object.keys(filter).forEach(key => {
-                if (filter[key] != undefined && item[key] != filter[key])
-                    shouldInclude = false;
-            })
-            return shouldInclude;
-        })
-        setSortedData(newData);
-    }
-
-    const queryData = () => {
-        if (searchQuery === "" || searchQuery.length < 3) {
-            setSearchData(null);
-            return;
-        }
-        const queryResult = sortedData.filter(item => {
-                if (item["Product Name"].toLowerCase().includes(searchQuery.toLowerCase()))
-                    return true;
-                else return false;
+            let include = true;
+            if (filters["Date"] && item["Date"] != filters["Date"]) include = false;
+            if (filters["Manufacturer"] && item["Manufacturer"] != filters["Manufacturer"]) include = false;
+            if (filters["Brand"] && item["Brand"] != filters["Brand"]) include = false;
+            if (filters["Retailer"] && item["Retailer"] != filters["Retailer"]) include = false;
+            if (filters["Category"] && item["Category"] != filters["Category"]) include = false;
+            if (searchQuery && !item["Product Name"].toLowerCase().includes(searchQuery)) include = false;
+            return include;
         });
-        setSearchData(queryResult);
-    }
-                
+        setSortedData(newData);
+    }, [filters, searchQuery]);
+    
     const sortData = (sortByColumn) => {
         setSortedColumn(sortByColumn, sortDir);
         const sorted = _.orderBy(sortedData, [(o) => o[sortByColumn]], [sortDir]);
         setSortedData(sorted);
         sortDir === "desc" ? setSortDir("asc") : setSortDir("desc");
     }
-
-    const dataSource = () => searchData ? searchData : sortedData;
                 
     return (
         <>
@@ -117,11 +81,21 @@ const CustomTable = (props) => {
             <FilterControl onClick={() => setShowFilters(true)}>Filters</FilterControl>
             {showFilters && (
                 <FiltersBox>
-                    <FilterOption><FOT>Date Filter:</FOT><Select width="200px" value={dateFilter} onChange={(e) => setDateFilter(e.target.value)} placeholder={{text: "No Filter"}} options={dateOptions}></Select></FilterOption>
-                    <FilterOption><FOT>Retailer Filter</FOT><Select width="200px" value={retailerFilter} onChange={(e) => setRetailerFilter(e.target.value)} placeholder={{text: "No Filter"}} options={retailerOptions}></Select></FilterOption>
-                    <FilterOption><FOT>Category Filter:</FOT><Select width="200px" value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} placeholder={{text: "No Filter"}} options={categoryOptions}></Select></FilterOption>
-                    <FilterOption><FOT>Brand Filter:</FOT><Select width="200px" value={brandFilter} onChange={(e) => setBrandFilter(e.target.value)} placeholder={{text: "No Filter"}} options={brandOptions}></Select></FilterOption>
-                    <FilterOption><FOT>Manufacturer Filter:</FOT><Select width="200px" value={manufacturerFilter} onChange={(e) => setManuFacturerFilter(e.target.value)} placeholder={{text: "No Filter"}} options={manufacturerOptions}></Select></FilterOption>
+                    <FilterOption><FOT>Date Filter:</FOT>
+                        <Select width="200px" value={filters["Date"] || "No Filter"} onChange={(e) => setFilters({...filters, "Date": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={dateOptions}></Select>
+                    </FilterOption>
+                    <FilterOption><FOT>Retailer Filter</FOT>
+                        <Select width="200px" value={filters["Retailer"] || "No Filter"} onChange={(e) => setFilters({...filters, "Retailer": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={retailerOptions}></Select>
+                    </FilterOption>
+                    <FilterOption><FOT>Category Filter:</FOT>
+                        <Select width="200px" value={filters["Category"] || "No Filter"} onChange={(e) => setFilters({...filters, "Category": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={categoryOptions}></Select>
+                    </FilterOption>
+                    <FilterOption><FOT>Brand Filter:</FOT>
+                        <Select width="200px" value={filters["Brand"] || "No Filter"} onChange={(e) => setFilters({...filters, "Brand": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={brandOptions}></Select>
+                    </FilterOption>
+                    <FilterOption><FOT>Manufacturer Filter:</FOT>
+                        <Select width="200px" value={filters["Manufacturer"] || "No Filter"} onChange={(e) => setFilters({...filters, "Manufacturer": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={manufacturerOptions}></Select>
+                    </FilterOption>
                     <FilterControl onClick={() => setShowFilters(false)}>close</FilterControl>
                 </FiltersBox>
             )}
@@ -153,7 +127,7 @@ const CustomTable = (props) => {
                 </TableHeaderRow>
             </TableHeaders>
             <tbody>
-                {dataSource().slice(page * rowsPerPage, (page * rowsPerPage) + rowsPerPage).map(row => (
+                {sortedData.slice(page * rowsPerPage, (page * rowsPerPage) + rowsPerPage).map(row => (
                     <TableRow>
                         {Object.values(row).map(x => (
                             <TableData>{x}</TableData>
@@ -185,6 +159,7 @@ const CustomTable = (props) => {
                     {["nextDisabled"]: page === Math.ceil(sortedData.length / rowsPerPage)-1}
                 ])}
                 onPageChange={(newPage) => setPage(newPage.selected)}
+                forcePage={page}
                 />
         </TablePaginate>
         </>

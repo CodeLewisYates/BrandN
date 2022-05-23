@@ -66,6 +66,8 @@ export const FilterOption = styled.div`
 `
 export const FOT = styled.div`
     margin-right: auto;
+    font-weight: 400;
+    color: ${colors.chartText};
 `
 export const FilterControl = styled.p`
     cursor: pointer;
@@ -85,6 +87,7 @@ export const FiltersBox = styled.div`
     flex-direction: column;
     box-shadow: 0 0 10px rgba(0,0,0,0.8);
     width: max-content;
+    border: 1px solid ${colors.chartText};
 `
 
 export const Search = styled.input`

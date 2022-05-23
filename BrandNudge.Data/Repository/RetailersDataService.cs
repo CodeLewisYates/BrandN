@@ -62,13 +62,25 @@ namespace BrandNudge.Data.Repository
                 Manufacturer = x.Brand.Manufacturer.ManufacturerName,
                 Date = x.Date,
                 BasePrice = x.BasePrice,
-                EAN = x.EAN,
-                PromotedPrice = x.PromotedPrice,
                 ShelfPrice = x.ShelfPrice,
+                Category = x.Category.CategoryName,
+                PromotionDescription = x.Promotion == null ? "" : x.Promotion.PromotionDescription,
+                Retailer = x.Retailer.RetailerName,
             }).ToListAsync();
             return result;
         }
 
-        
+        public async Task<List<CategoryPromotion>> GetCategoryPromotionByRetailer(int retailerId, string date)
+        {
+            var result = await _context.Products.Where(x => x.Retailer.Id == retailerId && x.Promotion != null && x.Date == date)
+                .GroupBy(x => x.Category.CategoryName).Select(x => new CategoryPromotion
+            {
+                Category = x.Key,
+                NumberOfPromotions = x.Count(),
+            }).ToListAsync();
+
+            return result;
+        }
+
     }
 }

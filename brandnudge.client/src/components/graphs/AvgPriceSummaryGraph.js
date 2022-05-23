@@ -2,6 +2,7 @@ import { Bar } from "react-chartjs-2";
 import {retailerColors} from "assets/shared/variables";
 import { retailerColorsTrans } from "assets/shared/variables";
 import { colors } from "assets/shared/variables";
+import _ from "lodash";
 
 const graphOptions = {
     responsive: true,
@@ -58,7 +59,7 @@ const AvgPriceSummaryGraph = (props) => {
 
     const {data} = props;
 
-    const labels = data[0].data.map(x => x.date);
+    const labels = _.orderBy(data[0].data.map(x => x.date), (o) => o, "asc");
     const formattedData = {
         labels,
         datasets: data.map((x, i) => {
@@ -72,7 +73,7 @@ const AvgPriceSummaryGraph = (props) => {
                 borderRadius: 2,
                 categoryPercentage: 0.8,
                 barPercentage: 0.6,
-                data: x.data.map(y => y.value.toFixed(2))
+                data: _.orderBy(x.data, (o) => o.date).map(y => y.value.toFixed(2))
             }
         })
     }

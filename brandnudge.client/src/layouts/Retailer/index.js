@@ -5,7 +5,7 @@ import Loader from "components/Loader";
 import LayoutTitle from "components/LayoutTitle/LayoutTitle";
 import { RetailerCard } from "assets/styles/layouts/Retailer/RetailerStyles";
 import { RetailerGraphHeightLimiter } from "assets/styles/layouts/Retailer/RetailerStyles";
-import CategoryPopularityGraph from "components/graphs/CategoryPopularityGraph";
+import CategoryPromotionsGraph from "components/graphs/RetailerCategoryPromotionsGraph";
 import CustomTable from "components/Table";
 import { getTableFormat } from "utils/services/RetailerService";
 import Card from "components/Card/Card";
@@ -20,7 +20,8 @@ const Retailer = (props) => {
     }, []);
 
     const services = async () => {
-        const result = await RetailerService(location.pathname.split("/")[location.pathname.split("/").length-1]);
+        const split = location.pathname.split("/");
+        const result = await RetailerService(split[split.length-1]);
         setData(result);
     }
 
@@ -34,7 +35,7 @@ const Retailer = (props) => {
                 <>
                 <Card>
                     <RetailerGraphHeightLimiter>
-                        <CategoryPopularityGraph data={data.categoryPopularities} />
+                        <CategoryPromotionsGraph data={data.categoryPopularities} />
                     </RetailerGraphHeightLimiter>
                 </Card>
                 <div style={{height: "50px"}}></div>

@@ -9,5 +9,6 @@ namespace BrandNudge.Core.Services
         public Task<Retailer> GetRetailerById(int retailerId);
         public Task<List<CategoryPopularity>> GetCategoryPopularitiesByRetailer(int retailerId);
         public Task<List<Product>> GetProductDataByRetailer(int retailerId);
+        public Task<List<CategoryPromotion>> GetCategoryPromotionByRetailer(int retailerId, string date);
     }
 }
