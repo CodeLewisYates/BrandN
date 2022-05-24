@@ -73,7 +73,7 @@ const CustomTable = (props) => {
         setSortedData(sorted);
         sortDir === "desc" ? setSortDir("asc") : setSortDir("desc");
     }
-                
+    
     return (
         <>
         <TableControls>

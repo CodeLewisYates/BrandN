@@ -65,7 +65,8 @@ const graphOptions = {
         }
     },
     interaction: {
-        mode: "point"
+        mode: "nearest",
+        intersect: false,
     },
 }
 

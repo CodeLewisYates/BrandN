@@ -18,7 +18,8 @@ export const DashboardCard = styled.div`
     width: 300px;
     cursor: pointer;
     margin: 0 10px 10px 10px;
-    background: ${colors.backgroundSecondary};
+    // background: ${colors.backgroundSecondary};
+    background-color: rgb(57,63,68, 0.3);
     transition: all 0.3s;
     &:hover {
         transform: scale(1.02)

@@ -2,6 +2,7 @@ import { Doughnut } from "react-chartjs-2";
 import { colors } from "assets/shared/variables";
 import { retailerColors } from "assets/shared/variables";
 import { retailerColorsTrans } from "assets/shared/variables";
+import _ from "lodash";
 
 const chartOptions = {
     responsive: true,
@@ -26,15 +27,23 @@ const chartOptions = {
     }
 }
 
+const testColors = [
+    "rgb(102,148,246)",
+    "rgb(115,194,251)",
+    "#7ef9ff",
+    "rgb(0,128,129)",
+    "rgb(16,52,166)"
+]
+
 const DonutCategorySummaryGraph = (props) => {
     const {data} = props;
 
-    console.log("donut", data);
-    const labels = data.map(x => x.retailer)
+    const sorted = _.orderBy(data, (o) => o.retailer);
+    const labels = sorted.map(x => x.retailer)
     const formattedData={
         labels,
         datasets: [{
-            data: data.map(x => x.productCount),
+            data: sorted.map(x => x.productCount),
             backgroundColor: retailerColorsTrans,
             borderColor: retailerColors,
         }]

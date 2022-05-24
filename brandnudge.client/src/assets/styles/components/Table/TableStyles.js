@@ -96,7 +96,7 @@ export const Search = styled.input`
     border: 1px solid #bfbfc5;
     border-radius: 10px;
     width: 30%;
-    background-color: transparent;
+    background-color: #e9e9e9;
     color: ${colors.whiteText};
     margin-bottom: 15px;
 `

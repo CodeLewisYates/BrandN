@@ -17,7 +17,7 @@ html, body {
 #root {
   min-height: 100%;
   height: max-content;
-  background: linear-gradient(#1e1e2f,#1e1e24);
+  background-image: radial-gradient(circle, #051937, #1b3963, #2f5d92, #4084c4, #4faef8);
 }
 
 
