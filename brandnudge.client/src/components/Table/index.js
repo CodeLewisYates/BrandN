@@ -97,7 +97,7 @@ const CustomTable = (props) => {
                     <FilterOption><FOT>Manufacturer Filter:</FOT>
                         <Select width="200px" value={filters["Manufacturer"] || "No Filter"} onChange={(e) => setFilters({...filters, "Manufacturer": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={manufacturerOptions}></Select>
                     </FilterOption>
-                    <FilterControl onClick={() => setShowFilters(false)}>close</FilterControl>
+                    <FilterControl onClick={() => setShowFilters(false)}>Close X</FilterControl>
                 </FiltersBox>
             )}
             </FilterOptions>

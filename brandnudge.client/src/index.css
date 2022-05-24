@@ -11,13 +11,17 @@ body {
 html, body {
   /* width: 100vw; */
   height: 100%;
-  
+  background: radial-gradient(circle, rgba(5,25,55,1) 8%, rgba(14,112,195,1) 74%, rgba(79,174,248,1) 100%);
 }
 
 #root {
   min-height: 100%;
   height: max-content;
-  background-image: radial-gradient(circle, #051937, #1b3963, #2f5d92, #4084c4, #4faef8);
+  /* background-image: radial-gradient(circle, #051937, #1b3963, #2f5d92, #4084c4, #4faef8); */
+  /* background: radial-gradient(circle, rgba(5,25,55,1) 8%, rgba(14,112,195,1) 74%, rgba(79,174,248,1) 100%); */
+  background: #0f0c29;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 
@@ -25,4 +29,15 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+@keyframes filter {
+  0% {
+    transform: scale(0);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

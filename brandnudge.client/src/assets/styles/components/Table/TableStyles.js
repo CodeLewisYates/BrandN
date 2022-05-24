@@ -38,7 +38,7 @@ export const TableRow = styled.tr`
 
 export const TableData = styled.td`
     padding: 12px 6px;
-    font-weight: 400;
+    font-weight: 500;
 `
 
 export const TablePaginate = styled.div`
@@ -76,7 +76,7 @@ export const FilterControl = styled.p`
 `
 
 export const FiltersBox = styled.div`
-    background-color: ${colors.backgroundSecondary};
+    background-color: #2a2850;
     border-radius: 10px;
     padding: 25px;
     position: absolute;
@@ -87,16 +87,20 @@ export const FiltersBox = styled.div`
     flex-direction: column;
     box-shadow: 0 0 10px rgba(0,0,0,0.8);
     width: max-content;
-    border: 1px solid ${colors.chartText};
+    transform-origin: top right;
+    animation: filter 0.2s linear;
 `
 
 export const Search = styled.input`
-    padding: 8px;
+    padding: 12px;
     margin-right: auto;
-    border: 1px solid #bfbfc5;
+    border: 2px solid #bfbfc5;
     border-radius: 10px;
     width: 30%;
-    background-color: #e9e9e9;
-    color: ${colors.whiteText};
+    background-color: rgba(95,124,155, 0.2);
+    color: ${colors.whiteText} !important;
     margin-bottom: 15px;
+    ::placeholder {
+        color: ${colors.whiteText};
+    }
 `

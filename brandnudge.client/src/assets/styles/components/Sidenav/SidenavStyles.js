@@ -15,11 +15,10 @@ export const SidenavNav = styled.div`
     height: 100%;
     width: 100%;
     margin: 0 auto;
-    // background: linear-gradient(195deg, rgb(66, 66, 74), rgb(25, 25, 25));
-    background-color: transparent;
+    background: linear-gradient(195deg, rgba(66, 66, 74, 0.2), rgba(25, 25, 25, 0.2));
     color: ${colors.whiteText};
     border-radius: 10px;
-    // box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     padding: 20px 10px;
     align-items: center;
 `
@@ -57,7 +56,10 @@ export const SidenavListItem = styled.li`
 `
 
 export const SidenavListItemActive = styled(SidenavListItem)`
-    background: linear-gradient(195deg, rgb(73, 163, 241), rgb(26, 115, 232)); 
+    background: linear-gradient(195deg, rgb(73, 163, 241), rgb(26, 115, 232));
+    // background-color: #fff;
+    // color: #000;
+    box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.5);
 `
 
 export const SidenavListItemIcon = styled.span`

@@ -23,7 +23,15 @@ const chartOptions = {
                     family: "Roboto"
                 }
             }
-        }
+        },
+        tooltip: {
+            enabled: true,
+            boxPadding: 6,
+            callbacks: {
+                label: (labelTip) => `Products: ${labelTip.formattedValue}`,
+                title: (titleTip) => `Retailer: ${titleTip[0].label}`
+            }
+        },
     }
 }
 
