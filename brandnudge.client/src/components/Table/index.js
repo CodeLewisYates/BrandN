@@ -109,6 +109,7 @@ const CustomTable = (props) => {
                         <TableHeader>
                             <TableHeaderText
                                 onClick={() => sortData(column)}
+                                style={{color: filters[column] ? `${colors.navBlue}` : "#bfbfc5"}}
                             >
                                 {column.toUpperCase()}
                                 {sortedColumn === column ? (
