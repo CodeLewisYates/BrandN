@@ -1,26 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Data\\BrandNudge.Data.csproj": {}
+    "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Data\\BrandNudge.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj": {
+    "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj",
         "projectName": "BrandNudge.Core",
-        "projectPath": "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj",
-        "packagesPath": "C:\\Users\\lewis.yates\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Core\\obj\\",
+        "projectPath": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj",
+        "packagesPath": "C:\\Users\\Louise\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lewis.yates\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Louise\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -57,31 +58,32 @@
         }
       }
     },
-    "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Data\\BrandNudge.Data.csproj": {
+    "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Data\\BrandNudge.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Data\\BrandNudge.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Data\\BrandNudge.Data.csproj",
         "projectName": "BrandNudge.Data",
-        "projectPath": "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Data\\BrandNudge.Data.csproj",
-        "packagesPath": "C:\\Users\\lewis.yates\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Data\\obj\\",
+        "projectPath": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Data\\BrandNudge.Data.csproj",
+        "packagesPath": "C:\\Users\\Louise\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lewis.yates\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Louise\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj": {
-                "projectPath": "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj"
+              "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj": {
+                "projectPath": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj"
               }
             }
           }

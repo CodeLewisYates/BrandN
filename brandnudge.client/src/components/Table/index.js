@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useMemo, useCallback} from "react";
+import React, {useEffect, useState, useMemo, useRef} from "react";
 import {IoMdArrowRoundDown, IoMdArrowRoundUp} from "react-icons/io";
 import {BsArrowDownUp} from "react-icons/bs"
 import { colors } from "assets/shared/variables";
@@ -45,14 +45,19 @@ const CustomTable = (props) => {
     });
 
     // Filter Options
-    const dateOptions = useMemo(() => [...new Set(tableData.data.map(x => x["Date"]))], [] );
-    const manufacturerOptions = useMemo(() => [...new Set(tableData.data.map(x => x["Manufacturer"]))], [] );
-    const brandOptions = useMemo(() => [...new Set(tableData.data.map(x => x["Brand"]))], [] );
-    const retailerOptions = useMemo(() => [...new Set(tableData.data.map(x => x["Retailer"]))], [] );
-    const categoryOptions = useMemo(() => [...new Set(tableData.data.map(x => x["Category"]))], [] );
+    const dateOptions = useRef([...new Set(tableData.data.map(x => x["Date"]))]);
+    const manufacturerOptions = useRef([...new Set(tableData.data.map(x => x["Manufacturer"]))]);
+    const brandOptions = useRef([...new Set(tableData.data.map(x => x["Brand"]))]);
+    const retailerOptions = useRef([...new Set(tableData.data.map(x => x["Retailer"]))]);
+    const categoryOptions = useRef([...new Set(tableData.data.map(x => x["Category"]))]);
 
     // Sorting and Filtering
+    const ref= useRef(false);
     useEffect(() => {
+        if (!ref.current){
+            ref.current = true;
+            return;
+        }
         setPage(0);
         const newData = tableData.data.filter(item => {
             let include = true;
@@ -83,19 +88,19 @@ const CustomTable = (props) => {
             {showFilters && (
                 <FiltersBox>
                     <FilterOption><FOT>Date Filter:</FOT>
-                        <Select width="200px" value={filters["Date"] || "No Filter"} onChange={(e) => setFilters({...filters, "Date": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={dateOptions}></Select>
+                        <Select width="200px" value={filters["Date"] || "No Filter"} onChange={(e) => setFilters({...filters, "Date": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={dateOptions.current}></Select>
                     </FilterOption>
                     <FilterOption><FOT>Retailer Filter</FOT>
-                        <Select width="200px" value={filters["Retailer"] || "No Filter"} onChange={(e) => setFilters({...filters, "Retailer": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={retailerOptions}></Select>
+                        <Select width="200px" value={filters["Retailer"] || "No Filter"} onChange={(e) => setFilters({...filters, "Retailer": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={retailerOptions.current}></Select>
                     </FilterOption>
                     <FilterOption><FOT>Category Filter:</FOT>
-                        <Select width="200px" value={filters["Category"] || "No Filter"} onChange={(e) => setFilters({...filters, "Category": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={categoryOptions}></Select>
+                        <Select width="200px" value={filters["Category"] || "No Filter"} onChange={(e) => setFilters({...filters, "Category": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={categoryOptions.current}></Select>
                     </FilterOption>
                     <FilterOption><FOT>Brand Filter:</FOT>
-                        <Select width="200px" value={filters["Brand"] || "No Filter"} onChange={(e) => setFilters({...filters, "Brand": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={brandOptions}></Select>
+                        <Select width="200px" value={filters["Brand"] || "No Filter"} onChange={(e) => setFilters({...filters, "Brand": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={brandOptions.current}></Select>
                     </FilterOption>
                     <FilterOption><FOT>Manufacturer Filter:</FOT>
-                        <Select width="200px" value={filters["Manufacturer"] || "No Filter"} onChange={(e) => setFilters({...filters, "Manufacturer": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={manufacturerOptions}></Select>
+                        <Select width="200px" value={filters["Manufacturer"] || "No Filter"} onChange={(e) => setFilters({...filters, "Manufacturer": e.target.value === "No Filter" ? false : e.target.value})} placeholder={{text: "No Filter"}} options={manufacturerOptions.current}></Select>
                     </FilterOption>
                     <FilterControl onClick={() => setShowFilters(false)}>Close X</FilterControl>
                 </FiltersBox>

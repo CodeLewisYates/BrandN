@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "yyyNaQsd0kg8CUnILbgT2TW63EinCPGJv26wKMZCPFmE3r4n2va/A8Dvn5BvF42AdXgEc8/EpavAwlb3mWvsHQ==",
+  "dgSpecHash": "JfAStOJRL64m2vUX7v+ZL4tySUz98OA64n2qsUjq44Itq0sSqbpLUzNml9rZRAXievsNimC2dZqfMMaMt2Vl/Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lewis.yates\\Documents\\GitHub\\BrandNudge\\BrandNudge.Application\\BrandNudge.Application.csproj",
+  "projectFilePath": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Application\\BrandNudge.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lewis.yates\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
-    "C:\\Users\\lewis.yates\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+    "C:\\Users\\Louise\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\Louise\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
   ],
   "logs": []
 }

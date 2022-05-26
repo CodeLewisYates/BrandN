@@ -53,6 +53,10 @@ const graphOptions = {
             }
         }
     },
+    interaction: {
+        mode: "x",
+        intersect: false,
+    }
 }
 
 const AvgPriceSummaryGraph = (props) => {
@@ -72,7 +76,7 @@ const AvgPriceSummaryGraph = (props) => {
                 hoverBorderColor: retailerColors[i],
                 borderRadius: 2,
                 categoryPercentage: 0.8,
-                barPercentage: 0.6,
+                barPercentage: 0.4,
                 data: _.orderBy(x.data, (o) => o.date).map(y => y.value.toFixed(2))
             }
         })

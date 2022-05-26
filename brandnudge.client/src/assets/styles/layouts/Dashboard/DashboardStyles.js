@@ -24,6 +24,12 @@ export const DashboardCard = styled.div`
     &:hover {
         transform: scale(1.02)
     }
+    @media(max-width: 1600px){
+        width: 220px;
+    }
+    @media (max-width: 1040px) {
+        width: 45%;
+    }
 `
 
 export const DashboardCardIcon = styled.div`
@@ -62,7 +68,7 @@ export const DashboardCardsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    flex: 1;
+    // width: 100%;
 `
 export const DashboardGraphRow = styled.div`
     display: flex;

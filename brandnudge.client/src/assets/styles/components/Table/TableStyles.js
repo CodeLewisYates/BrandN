@@ -20,6 +20,9 @@ export const TableHeaderText = styled.div`
     margin: 0 auto;
     cursor: pointer;
     font-size: 14px;
+    @media (max-width: 1600px) {
+        font-size: 12px;
+    }
 `
 
 export const TableHeaderRow = styled.tr`
@@ -39,6 +42,9 @@ export const TableRow = styled.tr`
 export const TableData = styled.td`
     padding: 12px 6px;
     font-weight: 500;
+    @media (max-width: 1600px) {
+        font-size: 12px;
+    }
 `
 
 export const TablePaginate = styled.div`

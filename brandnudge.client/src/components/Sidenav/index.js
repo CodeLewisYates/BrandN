@@ -21,9 +21,8 @@ const Sidenav = (props) => {
         ));
 
     return (
-        <SidenavContainer>
+        <SidenavContainer style={{animation: props.show ? "navIn 0.3s linear forwards" : "navOut 0.3s linear forwards"}}>
             <SidenavNav>
-                
                 <SidenavTitle>
                     Brand Nudge Analytics
                 </SidenavTitle>

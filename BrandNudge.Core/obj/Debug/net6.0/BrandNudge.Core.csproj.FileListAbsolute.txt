@@ -22,3 +22,15 @@ C:\Users\lewis.yates\Documents\GitHub\BrandNudge\BrandNudge.Core\obj\Debug\net6.
 C:\Users\lewis.yates\Documents\GitHub\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\refint\BrandNudge.Core.dll
 C:\Users\lewis.yates\Documents\GitHub\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\BrandNudge.Core.pdb
 C:\Users\lewis.yates\Documents\GitHub\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\ref\BrandNudge.Core.dll
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\bin\Debug\net6.0\BrandNudge.Core.deps.json
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\bin\Debug\net6.0\BrandNudge.Core.dll
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\bin\Debug\net6.0\BrandNudge.Core.pdb
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\BrandNudge.Core.csproj.AssemblyReference.cache
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\BrandNudge.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\BrandNudge.Core.AssemblyInfoInputs.cache
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\BrandNudge.Core.AssemblyInfo.cs
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\BrandNudge.Core.csproj.CoreCompileInputs.cache
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\BrandNudge.Core.dll
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\refint\BrandNudge.Core.dll
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\BrandNudge.Core.pdb
+C:\Users\Louise\Documents\BrandNudge\BrandNudge.Core\obj\Debug\net6.0\ref\BrandNudge.Core.dll

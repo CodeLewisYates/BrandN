@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import DashboardService from "utils/services/DashboardService";
 import {BsFillBarChartFill} from "react-icons/bs"
 import Loader from "components/Loader";
@@ -11,16 +11,12 @@ import { DashboardCard } from "assets/styles/layouts/Dashboard/DashboardStyles";
 import { DashboardCardText } from "assets/styles/layouts/Dashboard/DashboardStyles";
 import { DashboardCardFooter } from "assets/styles/layouts/Dashboard/DashboardStyles";
 import { DashboardCardsContainer } from "assets/styles/layouts/Dashboard/DashboardStyles";
-import { DashboardGraphCard1 } from "assets/styles/layouts/Dashboard/DashboardStyles";
-import { DashboardGraphCard2 } from "assets/styles/layouts/Dashboard/DashboardStyles";
 import { DashboardGraphHeightLimiter } from "assets/styles/layouts/Dashboard/DashboardStyles";
 import { DashboardGraphRow } from "assets/styles/layouts/Dashboard/DashboardStyles";
 import StockSummaryGraph from "components/graphs/StockSummaryGraph";
 import AvgPriceSummaryGraph from "components/graphs/AvgPriceSummaryGraph";
 import DonutCategorySummaryGraph from "components/graphs/DonutCategorySummaryGraph";
-import {getTableFormatPriceSummary} from "utils/services/DashboardService";
 import { getNewDonutData } from "utils/services/DashboardService";
-import Table from "components/Table";
 import Card from "components/Card/Card";
 import Select from "components/Select/Select";
 
@@ -34,7 +30,12 @@ const Dashboard = (props) => {
         services();
     }, []);
 
+    const ref = useRef(false);
     useEffect(() => {
+        if (!ref.current) {
+            ref.current = true;
+            return;
+        }
         getNewDonut(donutDate, donutCategory);
     }, [donutDate, donutCategory]);
 
@@ -57,15 +58,15 @@ const Dashboard = (props) => {
                 <>
                 <DashboardCardsContainer>
                  {data.retailers.map((retailer, key) => (
-                     <NavLink to={`/retailer/${retailer.id}`} style={{textDecoration: "none"}}>
-                        <DashboardCard key={key}>
+                     <DashboardCard key={key}>
+                            <NavLink to={`/retailer/${retailer.id}`} style={{textDecoration: "none"}}>
                             <DashboardCardIcon
                                 style={{background: `linear-gradient(45deg, ${retailerColors[key]},${retailerColors[key]}, rgba(255,255,255,1))`}}
                             ><BsFillBarChartFill size="30px" /></DashboardCardIcon>
                             <DashboardCardText>{retailer.retailerName}</DashboardCardText>
                             <DashboardCardFooter>Retailer Analytics</DashboardCardFooter>
-                        </DashboardCard>
                      </NavLink>
+                        </DashboardCard>
                 ))}
                 </DashboardCardsContainer>
                 
