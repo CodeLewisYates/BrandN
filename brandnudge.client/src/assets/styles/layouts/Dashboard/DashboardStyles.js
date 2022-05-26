@@ -26,6 +26,7 @@ export const DashboardCard = styled.div`
     }
     @media(max-width: 1600px){
         width: 220px;
+        width: 18%;
     }
     @media (max-width: 1040px) {
         width: 45%;

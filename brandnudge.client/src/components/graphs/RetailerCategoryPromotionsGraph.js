@@ -59,7 +59,7 @@ const CategoryPopularityGraph = (props) => {
     const formattedData = {
         labels,
         datasets: [{
-            label: '# Of Products',
+            label: '# Of Promotions',
             data: alphabetical.map(x => x.numberOfPromotions),
             backgroundColor: categoryColorsTrans,
             hoverBackgroundColor: categoryColors,

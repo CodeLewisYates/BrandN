@@ -79,24 +79,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lewis\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Louise\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lewis\\OneDrive\\Documents\\BrandNudge\\BrandNudge\\BrandNudge.Application\\BrandNudge.Application.csproj",
+      "projectUniqueName": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Application\\BrandNudge.Application.csproj",
       "projectName": "BrandNudge.Application",
-      "projectPath": "C:\\Users\\lewis\\OneDrive\\Documents\\BrandNudge\\BrandNudge\\BrandNudge.Application\\BrandNudge.Application.csproj",
-      "packagesPath": "C:\\Users\\lewis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lewis\\OneDrive\\Documents\\BrandNudge\\BrandNudge\\BrandNudge.Application\\obj\\",
+      "projectPath": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Application\\BrandNudge.Application.csproj",
+      "packagesPath": "C:\\Users\\Louise\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Application\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\lewis\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Louise\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -110,8 +105,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\lewis\\OneDrive\\Documents\\BrandNudge\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj": {
-              "projectPath": "C:\\Users\\lewis\\OneDrive\\Documents\\BrandNudge\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj"
+            "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj": {
+              "projectPath": "C:\\Users\\Louise\\Documents\\BrandNudge\\BrandNudge.Core\\BrandNudge.Core.csproj"
             }
           }
         }
@@ -146,7 +141,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
