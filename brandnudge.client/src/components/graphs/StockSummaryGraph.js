@@ -7,7 +7,13 @@ const graphOptions = {
     responsive: true,
     maintainAspectRatio: false,
     elements: {
-        line: {tension: 0.5}
+        line: {
+            tension: 0.5,
+            borderWidth: 4,
+        },
+        point: {
+            borderWidth: 3,
+        }
     },
     scales: {
         y: {
@@ -85,7 +91,7 @@ const StockSummaryGraph = (props) => {
                 pointHoverBackgroundColor: retailerColors[i],
                 pointRadius: 3,
                 pointHoverRadius: 5,
-                pointBackgroundColor: retailerColors[i]
+                pointBackgroundColor: retailerColors[i],
             }
         })
     }

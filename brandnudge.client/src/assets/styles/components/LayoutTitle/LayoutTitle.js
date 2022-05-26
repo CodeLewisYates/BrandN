@@ -10,6 +10,7 @@ export const LayoutTitleContainer = styled.div`
 
 export const LayoutTitleIcon = styled.div`
     margin-right: 10px;
+    width: max-content;
 `
 
 export const LayoutTitleFlex = styled.div`

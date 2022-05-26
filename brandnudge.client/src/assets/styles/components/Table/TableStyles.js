@@ -82,7 +82,7 @@ export const FilterControl = styled.p`
 `
 
 export const FiltersBox = styled.div`
-    background-color: #2a2850;
+    background-color: #22333b;
     border-radius: 10px;
     padding: 25px;
     position: absolute;

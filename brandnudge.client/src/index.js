@@ -4,12 +4,15 @@ import 'index.css';
 import App from 'App';
 import { BrowserRouter } from 'react-router-dom';
 import registerCharts from 'utils/registerChartJS';
+import NavContextProvider from "contexts/NavContext";
 
 registerCharts();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <NavContextProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </NavContextProvider>
 );

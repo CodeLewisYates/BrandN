@@ -110,8 +110,8 @@ const CustomTable = (props) => {
         <Table>
             <TableHeaders>
                 <TableHeaderRow>
-                    {tableData.columns.map(column => (
-                        <TableHeader>
+                    {tableData.columns.map((column, key) => (
+                        <TableHeader key={key}>
                             <TableHeaderText
                                 onClick={() => sortData(column)}
                                 style={{color: filters[column] ? `${colors.navBlue}` : "#bfbfc5"}}
@@ -134,8 +134,8 @@ const CustomTable = (props) => {
                 </TableHeaderRow>
             </TableHeaders>
             <tbody>
-                {sortedData.slice(page * rowsPerPage, (page * rowsPerPage) + rowsPerPage).map(row => (
-                    <TableRow>
+                {sortedData.slice(page * rowsPerPage, (page * rowsPerPage) + rowsPerPage).map((row, key) => (
+                    <TableRow key={key}>
                         {Object.values(row).map(x => (
                             <TableData>{x}</TableData>
                         ))}
